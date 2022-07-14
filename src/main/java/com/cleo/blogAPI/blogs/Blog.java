@@ -1,8 +1,10 @@
 package com.cleo.blogAPI.blogs;
 
+import com.cleo.blogAPI.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -26,6 +28,27 @@ public class Blog {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
+    private User user;
+
     private Date date_created;
 
     private Date date_updated;
