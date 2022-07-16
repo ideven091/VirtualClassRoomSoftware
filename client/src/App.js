@@ -1,14 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/Header";
+import Header from "./layout/Header";
+import Body from "./layout/Body";
+import Footer from "./layout/Footer";
 
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
-    </>
+       <Body />
+        <Footer />
+    </div>
   );
 }
 
